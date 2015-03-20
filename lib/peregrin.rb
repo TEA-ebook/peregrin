@@ -109,7 +109,7 @@ module Peregrin
       def self.format_for_path(path)
         return Peregrin::Zhook  if File.extname(path) == ".zhook"
         return Peregrin::Epub  if File.extname(path) == ".epub"
-        return Peregrin::Ochook  if File.directory?(path) || !File.exists?(path)
+        return Peregrin::Ochook  if File.directory?(path) || !File.exist?(path)
         raise UnknownFileFormat.new(path)
       end
 

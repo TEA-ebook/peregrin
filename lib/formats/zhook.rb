@@ -81,7 +81,7 @@ class Peregrin::Zhook
   # Writes the internal book object to a .zhook file at the given path.
   #
   def write(path)
-    File.unlink(path)  if File.exists?(path)
+    File.unlink(path)  if File.exist?(path)
     Zip::File.open(path, Zip::File::CREATE) { |zipfile|
       zipfile.get_output_stream(INDEX_PATH) { |f| f.write(htmlize(index)) }
       @book.resources.each { |resource|

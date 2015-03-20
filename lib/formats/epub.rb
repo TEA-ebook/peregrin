@@ -533,7 +533,7 @@ class Peregrin::Epub
       File.open(working_dir("mimetype"), 'wb') { |f|
         f.write(MIMETYPE_MAP['.epub'])
       }
-      File.unlink(path)  if File.exists?(path)
+      File.unlink(path)  if File.exist?(path)
       cmd = [
         "cd #{working_dir}",
         "zip -0Xq ../#{filename} mimetype",

@@ -64,7 +64,7 @@ class Peregrin::Tests::ComponentizerTest < Test::Unit::TestCase
       whitewash(IO.read(tmp_path))
     )
   ensure
-    File.unlink(tmp_path)  if File.exists?(tmp_path)
+    File.unlink(tmp_path)  if File.exist?(tmp_path)
   end
 
 
