@@ -100,7 +100,7 @@ class Peregrin::Componentizer
             node['class'].match(/\barticle\b/)
           )
         )
-      end while node = node.next
+      end while node = node.next_element
       true
     end
 
