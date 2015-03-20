@@ -362,7 +362,7 @@ class Peregrin::Epub
       FileUtils.mkdir_p(@working_dir)
       yield
     ensure
-      #FileUtils.rm_rf(@working_dir)
+      FileUtils.rm_rf(@working_dir) if File.exist?(@working_dir)
       @working_dir = nil
     end
 
