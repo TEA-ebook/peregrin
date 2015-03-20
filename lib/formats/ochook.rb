@@ -8,13 +8,13 @@ class Peregrin::Ochook < Peregrin::Zhook
     unless File.directory?(path)
       raise DirectoryNotFound.new(path)
     end
-    unless File.exists?(File.join(path, INDEX_PATH))
+    unless File.exist?(File.join(path, INDEX_PATH))
       raise MissingIndexHTML.new(path)
     end
-    unless File.exists?(File.join(path, COVER_PATH))
+    unless File.exist?(File.join(path, COVER_PATH))
       raise MissingCoverPNG.new(path)
     end
-    unless File.exists?(File.join(path, MANIFEST_PATH))
+    unless File.exist?(File.join(path, MANIFEST_PATH))
       raise MissingManifest.new(path)
     end
 
