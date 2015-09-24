@@ -598,6 +598,7 @@ class Peregrin::Epub
         elem.name = "div"
       }
       root.remove_attribute('xmlns')
+      root.remove_attribute('xml:lang')
       root.to_xhtml(:indent => 2, :encoding => root.document.encoding)
     end
 
