@@ -602,12 +602,7 @@ class Peregrin::Epub
   end
 
   def remove_namespaced_attributes(element, namespace)
-    attr_to_remove = []
-    element.attributes.each { |name, _|
-      if name.start_with? "#{namespace}:"
-        attr_to_remove.push(name)
-      end
-    }
+    attr_to_remove = element.attributes.select { |attr| attr.start_with? "#{namespace}:" }.map(&:first)
     attr_to_remove.each { |attr_name| element.remove_attribute(attr_name) }
 
     element.children.each { |child| remove_namespaced_attributes(child, namespace) }
