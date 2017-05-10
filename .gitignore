@@ -5,3 +5,4 @@ test/output/*
 pkg
 Gemfile.lock
 .screenrc
+.idea/
