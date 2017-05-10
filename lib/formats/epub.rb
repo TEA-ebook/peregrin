@@ -15,7 +15,6 @@ class Peregrin::Epub
   MIMETYPE_MAP = {
       '.xhtml' => 'application/xhtml+xml',
       '.odt' => 'application/x-dtbook+xml',
-      '.odt' => 'application/x-dtbook+xml',
       '.ncx' => 'application/x-dtbncx+xml',
       '.epub' => 'application/epub+zip'
   }
@@ -602,10 +601,10 @@ class Peregrin::Epub
   end
 
   def remove_namespaced_attributes(element, namespace)
-    attr_to_remove = element.attributes.select { |attr| attr.start_with? "#{namespace}:" }.map(&:first)
-    attr_to_remove.each { |attr_name| element.remove_attribute(attr_name) }
+    attr_to_remove = element.attributes.select {|attr| attr.start_with? "#{namespace}:"}.map(&:first)
+    attr_to_remove.each {|attr_name| element.remove_attribute(attr_name)}
 
-    element.children.each { |child| remove_namespaced_attributes(child, namespace) }
+    element.children.each {|child| remove_namespaced_attributes(child, namespace)}
   end
 
   def from_opf_root(*args)
